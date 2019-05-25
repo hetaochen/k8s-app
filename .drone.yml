@@ -1,0 +1,12 @@
+kind: pipeline
+
+steps:
+- name: build
+  image: microsoft/dotnet:2.2-sdk
+  commands:
+  - dotnet restore "k8s-app/k8s-app.csproj"
+  - dotnet build "k8s-app/k8s-app.csproj"
+
+trigger:
+  branch:
+  - master
