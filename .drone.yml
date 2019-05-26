@@ -8,6 +8,15 @@ steps:
   - dotnet restore "k8s-app/k8s-app.csproj"
   - dotnet build "k8s-app/k8s-app.csproj"
 
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: reg.qiniu.com/platosoft/k8s-app
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
+
 trigger:
   branch:
   - master
