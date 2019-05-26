@@ -8,9 +8,10 @@ steps:
   - dotnet restore "k8s-app/k8s-app.csproj"
   - dotnet build "k8s-app/k8s-app.csproj"
 
-- name: docker  
+- name: publish  
   image: plugins/docker
   settings:
+    registry: reg.qiniu.com
     repo: reg.qiniu.com/platosoft/k8s-app
     username:
       from_secret: DOCKER_USERNAME
